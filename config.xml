@@ -17,5 +17,5 @@
     <author href="https://build.phonegap.com" email="support@phonegap.com">
         Priyanka mhatre
     </author>
-<access origin="http://bluesys.in/" />
+<access origin="*" />
 </widget>
