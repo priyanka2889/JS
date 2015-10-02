@@ -101,15 +101,15 @@
 		 function OnError(xhr, errorType, exception) 
 		 {
                 var responseText;
-              var x;
+              $("#dialog").html("");
                 try {
                     responseText = jQuery.parseJSON(xhr.responseText);
-                    x="<div><b>" + errorType + " " + exception + "</b></div>";
-                    x=x+"<div><u>Exception</u>:<br /><br />" + responseText.ExceptionType + "</div>";
-                    x=x+"<div><u>StackTrace</u>:<br /><br />" + responseText.StackTrace + "</div>";
-                    x=x+"<div><u>Message</u>:<br /><br />" + responseText.Message + "</div>";
+                    $("#dialog").append("<div><b>" + errorType + " " + exception + "</b></div>");
+                    $("#dialog").append("<div><u>Exception</u>:<br /><br />" + responseText.ExceptionType + "</div>");
+                    $("#dialog").append("<div><u>StackTrace</u>:<br /><br />" + responseText.StackTrace + "</div>");
+                    $("#dialog").append("<div><u>Message</u>:<br /><br />" + responseText.Message + "</div>");
                 } catch (e) {
                     responseText = xhr.responseText;
-                    alertpopup(x);
+                    $("#dialog").html(responseText);
                 }
 		 }
