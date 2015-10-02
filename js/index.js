@@ -35,10 +35,7 @@
 								dataType: 'json',
 								data: formData,
 								success: onSuccess,
-								error: function(xhr,err){
-    alert("readyState: "+xhr.readyState+"\nstatus: "+xhr.status);
-    alert("responseText: "+xhr.responseText);
-}
+								error:onError
 							});
 					}
 				});
