@@ -93,16 +93,16 @@
 				}
 	
          }
-     /*    function onError(data, status)
-         {  alert("Error");
+      function onError(data, status)
+         {  alertpopup("Connection Error");
 			/*navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
 			'Something went wrong:',            // title
 			'Ok'                  // buttonName
-			);
-         }  */
-		 function OnError(xhr, errorType, exception) 
+			);*/
+         }  
+		 /* function OnError(xhr, errorType, exception) 
 		 {
                 var responseText;
               $("#dialog").html("");
@@ -116,4 +116,4 @@
                     responseText = xhr.responseText;
                     $("#dialog").html(responseText);
                 }
-		 }
+		 } */
