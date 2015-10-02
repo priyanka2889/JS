@@ -93,11 +93,11 @@
 				}
 	
          }
-      function onError(data, status)
+      function onError(msg)
          {  
 		 
 		 
-			alertpopup("Connection Error");
+			alertpopup(msg.responseText);
 			/*navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
