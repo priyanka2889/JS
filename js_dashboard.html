@@ -1,0 +1,571 @@
+<!DOCTYPE html> 
+<html >
+	<head>
+	
+		<title>Job Seeker</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<!-----------------MOBILE JQUERY CDN---------------->
+			<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+				<script src="js/jquery-2.1.1.js"></script>
+				<script src="js/jquery.mobile-1.4.5.min.js"></script>
+				<link rel="stylesheet" type="text/css" href="css/common.css">
+	
+				<!---------------------DATE BOX ---------------------->
+				<script type="text/javascript" src="js/datebox.js"></script>
+				<link rel="stylesheet" type="text/css" href="css/datebox.css">
+				<!--------------------VALIDATE ----------------------->
+				<script type="text/javascript" src="js/validate.js"></script>
+				<link rel="stylesheet" type="text/css" href="css/validate.css">
+				<link rel="stylesheet" href="css/pagination.css" /> 
+				<script type="text/javascript" src="js/listPagination.js"></script>
+				<script src="js/uploadimage.js"></script>
+				<script src="js/common.js"></script>
+				<script src="js/js_dashboard.js"></script>
+				<link rel="stylesheet" type="text/css" href="css/common.css">
+			    <link rel="stylesheet"  href="css/dist/jqm-icon-pack-fa.css" />
+				<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	
+	
+	</head>
+	<body onload="init();">
+	<div data-role="page">
+	</div>
+	<input type="hidden" id="Id" size="30" name="Id" value="" /> 
+	<input type="hidden" id="usr_name" size="30" name="usr_name" value=""/>
+		<!-------MAIN DASHBOARD PAGE------->
+		<div data-role="page" id="dashboard_page" data-theme="a">
+			<div data-role="header" >
+			<img border="0" src="" alt="user_pic" id="usericonpic" style="float:right;display:inline" width="40px" height="40px" onerror="imgError(this);" />
+			<h1><div id="username" ></div></h1>
+			<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div>
+			<div data-role="content">
+				<div id="searchForm">
+				<form name="job_search_form" id="job_search_form" method="post">
+					<fieldset class="ui-field-contain">							
+						<input type="text" id="key_search" size="150" name="" value="" placeholder="Job title or keywords"/> 
+					</fieldset> 						 
+					<fieldset class="ui-field-contain">														
+						<input type="text" id="location" size="30" name=""  value="" placeholder="Location" /> 
+						</a>
+					</fieldset> 
+					<fieldset class="ui-field-contain">
+						<input type="submit" id="search_jobs" name="search_jobs" value="Search" data-theme="b" data-ajax="false">
+					</fieldset>
+			</form><!---/SEARCH FORM DASHBOARD----->
+			<a href="#advance_search_page" style="float:right"  data-transition="slideup" >Advanced search</a>
+				</div><!---/SEARCH FORM DASHBOARD----->
+				<br>
+				<div id="list_main">
+					<div  id="list" style="float:left">
+						<ul data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><li data-icon="false"><a href="#recommended_job_page" data-transition="slideup"><p id="multipleline">Recommended Jobs</p> <span class="ui-li-count" id="matched_jobs_count"></span></a></li></ul>
+					</div>
+					<div id="list" style="float:right">
+					<ul  data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><li  data-icon="false"><a href="#applied_jobList" data-transition="slideup"><p id="multipleline">Applied jobs</p><span class="ui-li-count" id="applied_count"></span></a></li></ul>
+					</div>
+				</div>
+			</div><!---/CONTENT--->	
+			<!-----PANEL---->
+			<div data-role="panel" id="left-panel" data-theme="b" data-display="overlay">
+				<ul data-role="listview">
+				<li data-icon="false">
+					<div class="img-preview">
+					<img src="" alt="Profile Pic" id="profilePic" style="height:100px;width:100px;" onerror="imgError(this);"></div>
+					<input type="hidden" id="serverUrl" type="html" value="http://lewistechnologies.in/upload.php" />
+					<span class="fileinput-button">
+					<a onclick="selectPicture();" class="ui-btn ui-icon-arrow-u ui-btn-icon-notext ui-corner-all">upload</a>
+					</span>
+					</li>
+					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><div id="panel_username"></div></a></li>
+					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
+					<li ><a href="#advance_search_page" class="ui-btn ui-icon-search ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Search</a></li>
+					<li><a href="#recommended_job_page"  class="ui-btn ui-icon-briefcase ui-btn-icon-left"  data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Jobs<span class="ui-li-count" id="jobs_panel"></span></a></li>
+					<!--<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Inbox<span class="ui-li-count">7</span></a></li>
+					<li><a href="#" class="ui-btn ui-icon-eye ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Profile Views</a></li>-->
+					<li ><a href="#change_password_page"   class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Change Password</a></li>	
+					<li ><a href="index.html" id="logout" data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Log Out</a></li>	
+					<li><a href="#" class="ui-btn ui-icon-delete ui-btn-icon-left"  data-rel="close">&nbsp;&nbsp;&nbsp;&nbsp;Close</a></li>	
+				</ul>
+			</div><!-----/PANEL--->	
+		</div><!---/DASHBOARD MAIN -->
+		<div data-role='page' id="searchJoblist">
+		  <div data-role="header"><h2>Search Result</h2>
+		  <a href="#dashboard_page" data-transition="slideup" class="ui-btn ui-btn-b ui-btn-icon-notext ui-icon-carat-l ui-btn-left ui-corner-all">back</a>
+		  </div>
+		   <div data-role="content">
+		  <div id="list">
+					<ul data-role="lisview" id="search_list" data-inset="true"  data-split-icon="action" ></ul>
+		  </div>
+		   <div id="list">
+					<ul data-role="lisview" id="adsearch_list" data-inset="true"  data-split-icon="action" ></ul>
+		  </div>
+		</div>
+		</div>
+		
+		<div data-role='page' id="applied_jobList">
+		  <div data-role="header"><h2>Search Result</h2>
+		  <a data-rel="back" class="ui-btn ui-btn-b ui-btn-icon-notext ui-icon-carat-l ui-btn-left ui-corner-all">back</a>
+		  </div>
+		  <div data-role="content">
+		  <div id="list">
+					<ul data-role="lisview" id="applied_list" data-inset="true"></ul>
+		  </div>
+		</div>
+		</div>
+		<!------ADVANCED SEARCH PAGE------->
+		<div data-role="page" id="advance_search_page" >
+			<div data-role="header">
+				<h4>Search</h4>
+				<a href="#dashboard_page" data-icon="carat-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+				<a >Clear Form</a>
+			</div>
+			<div data-role="content">
+				<form name="job_search_form" id="job_search_form" method="post">
+					<fieldset class="ui-field-contain">
+						<label for="jos_name">Job Title</label>
+						<input type="text" id="jos_name" size="150" name="jos_name" value="" placeholder="Job keywords"/> 
+					</fieldset>  
+					<fieldset class="ui-field-contain">
+						<label for="jos_city">Location</label>							
+						<a href="#" id="current_location">
+						<input type="text" id="jos_city" size="30" name="jos_city" class="addimage" value="" placeholder="Select" /> 
+						</a>
+					</fieldset> 							
+					<fieldset class="ui-field-contain">
+						<label for="jos_exp_yr">Experience</label>						
+							<select id = "jos_exp_yr" name="jos_exp_yr" size="1"/>
+								<option value="" >Years</option>
+								<option value="0">Fresher</option><option value="1" >1</option>
+								<option value="2">2</option><option value="3" >3</option>
+								<option value="4" >4</option><option value="5" >5</option>
+								<option value="6" >6</option><option value="7" >7</option>
+								<option value="8" >8</option><option value="9" >9</option>
+								<option value="10" >10</option><option value="11" >11</option>
+								<option value="12" >12</option><option value="13" >13</option>
+								<option value="14" >14</option><option value="15" >15</option>
+								<option value="16" >16</option><option value="17" >17</option>
+								<option value="18" >18</option><option value="19" >19</option>
+								<option value="20" >20</option><option value="21" >21</option>
+								<option value="22" >22</option><option value="23" >23</option>
+								<option value="24" >24</option><option value="25" >25</option>			
+							</select>						
+					</fieldset>						
+					<fieldset class="ui-field-contain" id="salary">
+						<label for="jos_ctc_lac">Salary</label>
+							<div class="ui-grid-b ui-responsive"> 
+								<div class=" ui-block-a ui-responsive">	
+									<select id = "jos_ctc_lac" name="jos_ctc_lac" size="1"/>
+											<option value="" >In lacs</option>
+											<option value="0">0</option><option value="1" >1</option>
+											<option value="2">2</option><option value="3" >3</option>
+											<option value="4" >4</option><option value="5" >5</option>
+											<option value="6" >6</option><option value="7" >7</option>
+											<option value="8" >8</option><option value="9" >9</option>
+											<option value="10" >10</option><option value="11" >11</option>
+											<option value="12" >12</option><option value="13" >13</option>
+											<option value="14" >14</option><option value="15" >15</option>
+											<option value="16" >16</option><option value="17" >17</option>
+											<option value="18" >18</option><option value="19" >19</option>
+											<option value="20" >20</option><option value="21" >21</option>
+											<option value="22" >22</option><option value="23" >23</option>
+											<option value="24" >24</option><option value="25" >25</option>
+											<option value="26" >26</option><option value="27" >27</option>
+											<option value="28" >28</option><option value="29" >29</option>
+											<option value="30" >30</option><option value="31">31</option>
+											<option value="32">32</option><option value="33">33</option>
+											<option value="34">34</option><option value="35">35</option>
+											<option value="36">36</option><option value="37">37</option>
+											<option value="38">38</option><option value="39">39</option>
+											<option value="40">40</option><option value="41">41</option>
+											<option value="42">42</option><option value="43">43</option>
+											<option value="44">44</option><option value="45">45</option>
+											<option value="46">46</option><option value="47">47</option>
+											<option value="48">48</option><option value="49">49</option>
+											<option value="50">50</option>
+											<option value="50">50+</option>
+									</select>
+								</div>
+							
+							</div>
+						</fieldset>	
+						
+					    <fieldset class="ui-field-contain">
+							<input type="submit" id="ad_search_jobs" name="ad_search_jobs" value="Search" data-ajax="false"  data-theme="b">
+						</fieldset>
+					</form><!---/SEARCH FORM ENDS----->
+			</div><!---/CONTENT--->	
+			<!-----PANEL---->
+			<div data-role="panel" id="search_left_panel" data-theme="b" data-display="overlay">
+				<ul data-role="listview">
+					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><img src="images/user.png" alt="Profile Pic"><div id="panel3_username"></div></a></li>
+					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
+					<li ><a href="#" class="ui-btn ui-icon-search ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Search</a></li>
+					<li><a href="#recommended_job_page"  class="ui-btn ui-icon-briefcase ui-btn-icon-left"  data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Jobs<span class="ui-li-count">25</span></a></li>
+					<!--<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Inbox<span class="ui-li-count">7</span></a></li>
+					<li><a href="#" class="ui-btn ui-icon-eye ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Profile Views</a></li>-->
+					<li ><a href="#change_password_page"  data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slidedown">&nbsp;&nbsp;&nbsp;&nbsp;Change Password</a></li>	
+					<li ><a href="index.html" id="logout" data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slidedown">&nbsp;&nbsp;&nbsp;&nbsp;Log Out</a></li>	
+					<li><a href="#logout" class="ui-btn ui-icon-delete ui-btn-icon-left"  data-rel="close">&nbsp;&nbsp;&nbsp;&nbsp;Close</a></li>	
+				</ul>
+			</div><!-----/PANEL--->			
+		</div><!---/ADVANCED SEARCH PAGE -->
+		
+		
+		<!----------CHANGE PASSWORD PAGE------->
+		<div data-role="page" id="change_password_page">
+			<div data-role="header">
+				<h1>CHANGE PASSWORD</h1>
+				<a href="#dashboard_page" data-icon="delete" class="ui-btn-right" data-iconpos="notext" ">close</a>	
+			</div>
+			<div data-role="content" >	
+				<!------CHANGE PASSWORD FORM------>
+				<form name="change_pass_form" id="change_pass_form" method="POST">
+					<fieldset class="ui-field-contain">
+						<label for="js_exist_pass">Current Password</label>
+						<input type="password" id="js_exist_pass" size="150" name="js_exist_pass" > 
+					</fieldset>
+					<fieldset class="ui-field-contain">
+						<label for="js_new_pass">New Password</label>
+						<input type="password" id="js_new_pass" size="150" name="js_new_pass" > 
+					</fieldset>
+					<fieldset class="ui-field-contain">
+						<label for="js_new_pass_c">Confirm Password</label>
+						<input type="password" id="js_new_pass_c" size="150" name="js_new_pass_c" > 
+					</fieldset>
+					<input type="submit" id="change_pass_save" data-theme="b" name="change_pass_save" value="Save" class="ui-btn ui-shadow ui-corner-all ui-btn-b ">
+				</form>
+			</div><!---/CONTENT--->	
+		</div>	<!----/CHANGE PASSWORD PAGE-->
+		
+		<!------PROFILE VIEW PAGE------>
+		<div data-role="page" id="my_profile">
+			<div data-role="header">
+				<h4>My Profile</h4>
+				<a href="#dashboard_page" data-icon="carat-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
+			</div>
+			<div data-role="content">
+				<ul data-role="listview"  >
+					<li data-icon="false" ><a href="#my_profile" data-rel="close" ><img src="css/images/user.png" alt="Profile Pic"><div id="profile_username"></div><br><meter id="percent" value="">0%</meter><br>Profile Completion<div id="percentage">0%</div></a></li>
+				</ul>	
+				<br>
+				<div id="wrapper">
+					<div id="c1"  ><b><p>Experience</p></b></div><!--
+					--><div id="c2" ><b><p>Location</p></b></div><!--
+					--><div id="c3" ><b><p>Salary</p></b></div>
+				
+					<div id="c1" class="experience">Not Specified</div><!--
+					--><div id="c2" class="location" >Not Specified</div><!--
+					--><div id="c3" class="salary">Not Specified</div>
+				</div>
+				<br>
+				<ul data-role="listview" id="personal_details"  data-inset="true">
+				</ul><br>
+				<ul data-role="listview" id="experience_details"  data-inset="true">
+				</ul>				
+				<br>
+				<ul data-role="listview" id="education_details"  data-inset="true">
+				</ul>
+				<br>
+				<ul data-role="listview" id="keyskills_details"  data-inset="true">
+				</ul>
+				<br>
+				<ul data-role="listview" id="language_details"  data-inset="true">
+				</ul><br>
+				<ul data-role="listview" id="uploadresume"  data-inset="true">
+				<li data-role="list-divider" data-theme="a">Upload resume</li>
+				  <li id="previousResume" ></li>
+				  <li >
+				  <form name="resumeupload" id="resumeupload" enctype="multipart/form-data">
+				  
+				  <input type="hidden" id="serverUrl" name="serverUrl">
+				  <input type="hidden" id="userid" name="Id">
+				  <input type="file" id="file" name="file" >
+				  <input type="submit" id="upload" name="upload" data-ajax="false" value="upload" data-theme="b" data-inline="true">
+				  </form>
+				  <br><div id="status"></div></li>
+				</ul>
+			</div><!------/CONTENT---->
+			<!-----PANEL---->
+			<div data-role="panel" id="profile_panel" data-theme="b" data-display="overlay">
+				<ul data-role="listview">
+					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><img src="images/user.png" alt="Profile Pic"><div id="panel2_username"></div></a></li>
+					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
+					<li ><a href="#" class="ui-btn ui-icon-search ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Search</a></li>
+					<li><a href="#recommended_job_page"  class="ui-btn ui-icon-briefcase ui-btn-icon-left"  data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Jobs<span class="ui-li-count">25</span></a></li>
+					<!--<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Inbox<span class="ui-li-count">7</span></a></li>
+					<li><a href="#" class="ui-btn ui-icon-eye ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Profile Views</a></li>-->
+					<li ><a href="#change_password_page"  data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slidedown">&nbsp;&nbsp;&nbsp;&nbsp;Change Password</a></li>	
+					<li ><a href="index.html" id="logout" data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slidedown">&nbsp;&nbsp;&nbsp;&nbsp;Log Out</a></li>	
+					<li><a href="#logout" class="ui-btn ui-icon-delete ui-btn-icon-left"  data-rel="close">&nbsp;&nbsp;&nbsp;&nbsp;Close</a></li>	
+				</ul>
+			</div><!-----/PANEL--->	
+		</div><!----/PROFILE PAGE END--->
+		
+		<!------EDIT AND ADD PERSONAL INFORMATION PAGE------>
+		<div data-role="page" id="edit_basic">
+			<div data-role="header">
+				<h4>Personal Details</h4>
+				<a href="#my_profile" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+				<form name="edit_basic_form" id="edit_basic_form" method="post">
+							<fieldset class="ui-field-contain">
+								<label for="js_name">Name</label>
+								<input type="text" id="js_name" size="150" name="js_name" value="" placeholder="Enter Name"/> 
+							</fieldset> 
+							<fieldset class="ui-field-contain">
+								<label for="js_email">Email Id:</label> 
+								<input type="email" id="js_email" size="30" name="js_email"  value=""/> 
+							</fieldset> 
+							<fieldset class="ui-field-contain">
+								<label for="js_mobile">Mobile No.</label>
+								<input type="text" id="js_mobile" size="30" name="js_mobile" value="" /> 
+							</fieldset> 
+							<fieldset class="ui-field-contain">
+								<label for="js_phone">Telephone No.</label> 
+								<input type="text" id="js_phone" size="50" name="js_phone" value="" />
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<label for="js_city">Current Location</label> 								
+								<input type="text" id="js_city" size="30" name="js_city" value="" placeholder="Select" /> 
+								</a>
+							</fieldset> 	
+							<fieldset class="ui-field-contain">
+								<label for="js_dob">Date of Birth</label>
+								<input type="text" data-role="datebox"  id="js_dob"  name="js_dob" data-options='{"mode":"datebox","overrideSetDateButtonLabel":"Set Date of Birth"}' value="" >
+							</fieldset> 
+							<fieldset class="ui-field-contain">
+								<label for="js_gender">Gender</label> 
+								<select id = "js_gender" name="js_gender" size="1"/>
+									<option value=""></option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+								</select>	
+							</fieldset> 
+							<fieldset class="ui-field-contain">
+								<input type="submit" id="personal_details_save" name="personal_details_save" value="Save" data-theme="b">
+							</fieldset>
+					</form>		
+			</div>
+		</div>	<!----/BASIC PROFILE ENDS-->
+		
+		<!------EDIT EXPERIENCE PAGE------>
+		<div data-role="page" id="edit_experience">
+			<div data-role="header">
+				<h4>Experience</h4>
+				<a href="#my_profile" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+					<form name="edit_experience_form" id="edit_experience_form" method="post">
+							<!-------hidden field------->
+							<fieldset class="ui-field-contain">
+								<label for="js_resume_head">Profile Title</label>
+								<input type="text" id="js_resume_head" size="150" name="js_resume_head" value="" placeholder="Enter Profile Title"/> 
+							</fieldset> 
+							<fieldset class="ui-field-contain" id="salary">
+								<label for="js_ctc_lac">Salary</label>
+								<div class="ui-grid-b ui-responsive"> 
+									<div class=" ui-block-a ui-responsive">	
+										<select id = "js_ctc_lac" name="js_ctc_lac" size="1"/>
+											<option value="" >In lacs</option>
+											<option value="0">0 lac</option><option value="1" >1 lac</option>
+											<option value="2">2 lacs</option><option value="3" >3 lacs</option>
+											<option value="4" >4 lacs</option><option value="5" >5 lacs</option>
+											<option value="6" >6 lacs</option><option value="7" >7 lacs</option>
+											<option value="8" >8 lacs</option><option value="9" >9 lacs</option>
+											<option value="10" >10 lacs</option><option value="11" >11 lacs</option>
+											<option value="12" >12 lacs</option><option value="13" >13 lacs</option>
+											<option value="14" >14 lacs</option><option value="15" >15 lacs</option>
+											<option value="16" >16 lacs</option><option value="17" >17 lacs</option>
+											<option value="18" >18 lacs</option><option value="19" >19 lacs</option>
+											<option value="20" >20 lacs</option><option value="21" >21 lacs</option>
+											<option value="22" >22 lacs</option><option value="23" >23 lacs</option>
+											<option value="24" >24 lacs</option><option value="25" >25 lacs</option>
+											<option value="26" >26 lacs</option><option value="27" >27 lacs</option>
+											<option value="28" >28 lacs</option><option value="29" >29 lacs</option>
+											<option value="30" >30 lacs</option><option value="31">31 lacs</option>
+											<option value="32">32 lacs</option><option value="33">33 lacs</option>
+											<option value="34">34 lacs</option><option value="35">35 lacs</option>
+											<option value="36">36 lacs</option><option value="37">37 lacs</option>
+											<option value="38">38 lacs</option><option value="39">39 lacs</option>
+											<option value="40">40 lacs</option><option value="41">41 lacs</option>
+											<option value="42">42 lacs</option><option value="43">43 lacs</option>
+											<option value="44">44 lacs</option><option value="45">45 lacs</option>
+											<option value="46">46 lacs</option><option value="47">47 lacs</option>
+											<option value="48">48 lacs</option><option value="49">49 lacs</option>
+											<option value="50">50 lacs</option>
+											<option value="50">50+ lacs</option>
+										</select>
+									</div>
+									<div class=" ui-block-b ui-responsive" >	
+										<select id = "js_ctc_th" name="js_ctc_th" size="1"/>
+											<option value="" >In Thousands</option>
+											<option value="0">0 Thousand</option><option value="5" >5 Thousand</option>
+											<option value="10">10 Thousand</option><option value="15" >15 Thousand</option>
+											<option value="20" >20 Thousand</option><option value="25" >25 Thousand</option>
+											<option value="30" >30 Thousand</option><option value="35" >35 Thousand</option>
+											<option value="40" >40 Thousand</option><option value="45" >45 Thousand</option>
+											<option value="50" >50 Thousand</option><option value="55" >55 Thousand</option>
+											<option value="60" >60 Thousand</option><option value="65" >65 Thousand</option>
+											<option value="70" >70 Thousand</option><option value="75" >75 Thousand</option>
+											<option value="80" >80 Thousand</option><option value="85" >85 Thousand</option>
+											<option value="90" >90 Thousand</option><option value="95" >95 Thousand</option>
+										</select>
+									</div>
+								</div>
+							</fieldset>	
+							<fieldset class="ui-field-contain">
+								<label for="js_exp_yr">Total Experience</label>
+							<fieldset class="ui-grid-a">
+								<div class=" ui-block-a ">
+								<select id = "js_exp_yr" name="js_exp_yr" size="1"/>
+								<option value="" >Years</option>
+								<option value="0">Fresher</option><option value="1" >1 Years</option>
+								<option value="2">2 Years</option><option value="3" >3 Years </option>
+								<option value="4" >4 Years</option><option value="5" >5 Years</option>
+								<option value="6" >6 Years</option><option value="7" >7 Years</option>
+								<option value="8" >8 Years</option><option value="9" >9 Years</option>
+								<option value="10" >10 Years</option><option value="11" >11 Years</option>
+								<option value="12" >12 Years</option><option value="13" >13 Years</option>
+								<option value="14" >14 Years</option><option value="15" >15 Years</option>
+								<option value="16" >16 Years</option><option value="17" >17 Years</option>
+								<option value="18" >18 Years</option><option value="19" >19 Years</option>
+								<option value="20" >20 Years</option><option value="21" >21 Years</option>
+								<option value="22" >22 Years</option><option value="23" >23 Years</option>
+								<option value="24" >24 Years</option><option value="25" >25 Years</option>
+								<option value="26" >26 Years</option><option value="27" >27 Years</option>
+								<option value="28" >28 Years</option><option value="29" >29 Years</option>
+								<option value="30" >30 Years</option>
+							</select>
+							</div>
+							<div class=" ui-block-b " id="months">
+							<select id = "js_exp_month" name="js_exp_month" size="1"/>
+								<option value="" >Months</option>
+								<option value="0">0 Months</option><option value="1" >1 Months</option>
+								<option value="2">2 Months</option><option value="3" >3 Months</option>
+								<option value="4" >4 Months</option><option value="5" >5 Months </option>
+								<option value="6" >6 Months</option><option value="7" >7 Months</option>
+								<option value="8" >8 Months</option><option value="9" >9 Months</option>
+								<option value="10" >10 Months</option><option value="11" >11 Months</option>
+							</select>
+							</div>
+							</fieldset>
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<input type="submit" id="experience_details_save" name="experience_details_save" value="Save" data-theme="b">
+							</fieldset>
+					</form>		
+				
+			</div>
+		</div>	<!----/EXPERINECE PROFILE ENDS-->
+		
+		<!------EDIT EDUCATION PAGE------>
+		<div data-role="page" id="edit_education">
+			<div data-role="header">
+				<h4>Education</h4>
+				<a href="#my_profile" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+					<form name="edit_education_form" id="edit_education_form" method="post">
+					<input type="hidden" id="edit_exp_Id" size="30" name="edit_exp_Id" value="" />
+							<fieldset class="ui-field-contain">
+								<label for="js_basic_edu">UG Qualification</label>
+								<select id = "js_basic_edu" name="js_basic_edu" size="1"/><option value=""></option></select>
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<label for="js_master_edu">PG Qualification</label>
+								<select id = "js_master_edu" name="js_master_edu" size="1"/></select>
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<label for="js_doc_edu">Other Qualification</label>
+								<select id = "js_doc_edu" name="js_doc_edu" size="1"/></select>
+							</fieldset>
+							<input type="submit" id="save_education" name="save_education" value="Add" data-theme="b"/>
+					</form><!---/EDIT EDUCATION FORM ENDS----->
+			</div><!----/CONTENT--->
+		</div><!----/EDIT EDUCATION PAGE--->
+		
+	
+		
+		
+			<!------EDIT KEY SKILLS PAGE------>
+		<div data-role="page" id="edit_key_skills">
+			<div data-role="header">
+				<h4>Key Skills</h4>
+				<a href="#my_profile" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+				<form id="keyskills_add_form" name="keyskills_add_form">
+					
+					<input type="text" id="js_keyskills" name="js_keyskills"  />
+					<input type="submit" id="add_skills_submit" name="add_skills_submit" value="Add" data-theme="b"/>
+				</form>	
+				<br>
+					<ul data-role="listview" id="keyskills_list"  data-inset="true">
+					</ul>
+					
+					<fieldset class="ui-field-contain">
+						<input type="submit" id="submit_skills" name="submit_skills" value="Save" data-theme="b" />
+					</fieldset>
+
+				
+			</div><!----/CONTENT--->
+		</div><!----/EDIT PROFILE PAGE--->
+
+			<!------EDIT LANGUAGE PAGE------>
+		<div data-role="page" id="edit_language">
+			<div data-role="header">
+				<h4>LANGUAGE</h4>
+				<a href="#my_profile" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+				<form id="language_add_form" name="language_add_form">
+					
+					<input type="text" id="js_language_known" name="js_language_known"  />
+					<input type="submit" id="add_language_submit" name="add_language_submit" value="Add" data-theme="b"/>
+				</form>	
+				<br>
+					<ul data-role="listview" id="language_list"  data-inset="true">
+					</ul>
+					
+					<fieldset class="ui-field-contain">
+						<input type="submit" id="submit_language" name="submit_language" value="Save" data-theme="b" />
+					</fieldset>
+
+				
+			</div><!----/CONTENT--->
+		</div><!----/EDIT LANGUAGE PAGE--->
+		
+		
+		<!----JOBS RECOMMENDED---->
+		<div data-role="page" id="recommended_job_page">
+		
+			<div data-role="header" >
+				<h4>Recommended Jobs</h4>
+				<a href="#dashboard_page" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+				<div>
+					<ul data-role="lisview" id="content_list" data-inset="true" data-split-icon="action";  ></ul>
+					
+				</div>	
+			</div><!----/CONTENT--->
+		</div><!------/SERACH PAGE--->
+		
+		<!----JOBS DETAILS DISPLAY---->
+		<div data-role="page" id="jobs_details_page">
+		
+			<div data-role="header" >
+				<h4>Jobs Details</h4>
+				<a href="#recommended_job_page" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
+			</div>
+			<div data-role="content">
+				<div>
+					<ul data-role="lisview" id="jobs_details_list" ></ul>
+					
+				</div>	
+			</div><!----/CONTENT--->
+		</div><!------/SERACH PAGE--->
+	</body>
+</html>	

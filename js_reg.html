@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Admin Dashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jquery.validate.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/validate.css">
+			<!-------confirmation box------->
+		<script type="text/javascript" src="js/jquery.alerts.js"></script>
+	    <script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/js_rg.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/jquery.alerts.css">
+		<!--<script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
+		
+    </head>
+	<body>
+	     <div data-role="page" id="admin_registration">
+			<div data-role="header" >
+				<h3>Jobseekers Registration</h3>
+				<a href="index.html"  rel="external" data-transition="flip" title="back" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext">Home</a>
+			</div><!---HEADER ENDS--->
+			<div data-role="content">
+				<div id="form_reg">
+					<form name="js_reg" id="js_reg" method="post">
+						<!--------Hidden Field-------->
+						<span class="hidden">
+						<fieldset class="ui-field-contain">
+								<label for="usr_type">usrType</label>
+								<input type="hidden" id="usr_type" size="50" name="usr_type" value="3"  /> 	
+						</fieldset>
+						</span>
+						<fieldset class="ui-field-contain">
+								<label for="js_name">Name:</label>
+								<input type="text" id="js_name" size="50" name="js_name" value="" required /> 
+						</fieldset>
+						<fieldset class="ui-field-contain">
+								<label for="js_email">Email Id:</label>
+								<input type="text" id="js_email" size="50" name="js_email" value="" /> 
+								<div id='user_msg' align='center' style="color:red"></div>
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<label for="usr_password">Password:</label>
+								<input type="password" id="usr_password" size="50" name="usr_password" value="" /> 
+							</fieldset>
+							<fieldset class="ui-field-contain">
+								<label for="c_password">Confirm Password</label>
+								<input type="password" id="c_password" size="50" name="c_password" value="" /> 
+							</fieldset>
+							<!--<fieldset class="ui-field-contain">
+								<label for="js_city">City:</label>
+								<select id = "js_city" name="js_city" size="1"/>
+								<option value="">Select City</option>
+								</select>
+							</fieldset>-->
+							<fieldset class="ui-field-contain">
+								<label for="js_mobile">Mobile No.:</label>
+								<input type="text" id="js_mobile" size="50" name="js_mobile" value="" /> 
+							</fieldset>						
+                             <fieldset class="ui-field-contain">
+							<input type="submit" id="register" name="submit" value="Register" data-theme="b">
+							<input type="reset" id="reset" name="reset" value="Cancel" data-theme="b" >
+						</fieldset>
+					</form>
+				</div>
+			</div><!----- content close------>
+		</div><!-----page close---->
+	</body>
+</html>
