@@ -89,12 +89,27 @@
 				}
 	
          }
-         function onError(data, status)
+     /*    function onError(data, status)
          {  alert("Error");
 			/*navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
 			'Something went wrong:',            // title
 			'Ok'                  // buttonName
-			);*/
-         }  
+			);
+         }  */
+		 function OnError(xhr, errorType, exception) 
+		 {
+                var responseText;
+              var x;
+                try {
+                    responseText = jQuery.parseJSON(xhr.responseText);
+                    x="<div><b>" + errorType + " " + exception + "</b></div>";
+                    x=x+"<div><u>Exception</u>:<br /><br />" + responseText.ExceptionType + "</div>";
+                    x=x+"<div><u>StackTrace</u>:<br /><br />" + responseText.StackTrace + "</div>";
+                    x=x+"<div><u>Message</u>:<br /><br />" + responseText.Message + "</div>";
+                } catch (e) {
+                    responseText = xhr.responseText;
+                    alertpopup(x);
+                }
+		 }
