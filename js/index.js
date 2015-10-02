@@ -21,6 +21,7 @@
 						//key="This is a private key"+pass;
 						//encrypt= rc4(key, pass);
 						//$("#password").val(encrypt);
+
 					     
 						//var formData="username="+username+"&usr_usertype="+usr_usertype+"&key="+key+"&encrypt="+encrypt;
 						var formData="username="+username+"&usr_usertype="+usr_usertype+"&password="+pass;
