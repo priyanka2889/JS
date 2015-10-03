@@ -73,7 +73,7 @@
 				<li data-icon="false">
 					<div class="img-preview">
 					<img src="" alt="Profile Pic" id="profilePic" style="height:100px;width:100px;" onerror="imgError(this);"></div>
-					<input type="hidden" id="serverUrl" type="html" value="http://lewistechnologies.in/upload.php" />
+					<input type="hidden" id="serverUrl" type="html" value="http://bluesys.in/dev/recruitmentbackend/upload.php" />
 					<span class="fileinput-button">
 					<a onclick="selectPicture();" class="ui-btn ui-icon-arrow-u ui-btn-icon-notext ui-corner-all">upload</a>
 					</span>
@@ -92,24 +92,24 @@
 		</div><!---/DASHBOARD MAIN -->
 		<div data-role='page' id="searchJoblist">
 		  <div data-role="header"><h2>Search Result</h2>
-		  <a href="#dashboard_page" data-transition="slideup" class="ui-btn ui-btn-b ui-btn-icon-notext ui-icon-carat-l ui-btn-left ui-corner-all">back</a>
+		 <a href="#dashboard_page" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
 		  </div>
 		   <div data-role="content">
-		  <div id="list">
+		  <div>
 					<ul data-role="lisview" id="search_list" data-inset="true"  data-split-icon="action" ></ul>
 		  </div>
-		   <div id="list">
+		   <div >
 					<ul data-role="lisview" id="adsearch_list" data-inset="true"  data-split-icon="action" ></ul>
 		  </div>
 		</div>
 		</div>
 		
 		<div data-role='page' id="applied_jobList">
-		  <div data-role="header"><h2>Search Result</h2>
-		  <a data-rel="back" class="ui-btn ui-btn-b ui-btn-icon-notext ui-icon-carat-l ui-btn-left ui-corner-all">back</a>
+		  <div data-role="header"><h2>Applied Jobs</h2>
+		  <a href="#dashboard_page" data-icon="delete" data-iconpos="notext" data-transition="slideup" >Close</a>
 		  </div>
-		  <div data-role="content">
-		  <div id="list">
+		 <div data-role="content">
+		  <div>
 					<ul data-role="lisview" id="applied_list" data-inset="true"></ul>
 		  </div>
 		</div>

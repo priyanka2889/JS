@@ -319,6 +319,8 @@
 		
 		/////-----EDIT PROFILE ----///
 		$(document).on('click','.profile_details_edit',function(){
+			
+			
 			var listitem = $( this ).parent("li");
 			var Id =listitem.attr('Id');
 			$.ajax({
@@ -614,7 +616,7 @@
 				dataType:"json",
 				data:"type=save_skills&skills="+skills,
 				success:function(data){
-						window.location.reload();
+						//window.location.reload();
 						window.location.hash = "#my_profile";
 						
 						
@@ -689,7 +691,9 @@
 		
 		//*****ON LOADING THE RECOMMENDED JOBS PAGE*****///
 		$(document).on("pageinit",'#recommended_job_page',function(){
+			//$(document).on("click",'#recommended_job_page',function(){
 			searchlist="matchingjobs";
+			$.mobile.pagination.prototype.setoffset(0);
 			$("#content_list").empty();
 			matchingjobs(page);
 			page=2;
@@ -783,9 +787,11 @@
 //*****ON LOADING THE RECOMMENDED JOBS PAGE*****///
 		$(document).on("click",'#search_jobs',function(){
 			searchlist="jobsearch";
+			$.mobile.pagination.prototype.setoffset(0);
 			$("#search_list").empty();
 			jobsearch(page);
 			page=2;
+			//window.location.reload();
             window.location.hash="#searchJoblist";
 			});
 
@@ -820,8 +826,11 @@ function jobsearch(page)
 		
 		
 	//*applied job*//
+	
 $(document).on("pageinit",'#applied_jobList',function(){
+//$(document).on("click",'#applied_jobList',function(){
 	searchlist="appliedjobs";
+	$.mobile.pagination.prototype.setoffset(0);
 	$("#search_list").empty();
 	appliedjobs(page);
 	page=2;
@@ -856,6 +865,7 @@ $(document).on("pageinit",'#applied_jobList',function(){
 	$(document).on("click",'#ad_search_jobs',function(){
 			searchlist="adjobsearch";
 			$("#search_list").empty();
+			$.mobile.pagination.prototype.setoffset(0);
 			adjobsearch(page);
 			page=2;
 			window.location.hash="#searchJoblist";
