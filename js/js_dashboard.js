@@ -243,7 +243,11 @@
 					//alert(percentage);
 				$("#percent").val(profile_completion);
 				$("#percentage").text(profile_percentage);
-				
+				$("#experience_details").empty();
+				$("#personal_details").empty();
+				$("#education_details").empty();
+				$("#keyskills_details").empty();
+				$("#language_details").empty();
 			
 				///////--------DISPLAY OF PROFILE DETAILS----////
 				var experience=item.js_exp_yr+"Yr"+" - "+item.js_exp_month+"Month";/////DISPLAYING EXPERIENCE e.g 1Yr - 0Month FORMAT///
