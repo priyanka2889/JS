@@ -10,7 +10,7 @@
 			}
 		else
 			{
-			var id=localStorage.userId;//user Id
+			var id=localStorage.userId;///user Id
 			 getcount(id);	
 			
 			var username=localStorage.username;

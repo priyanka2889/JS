@@ -21,7 +21,6 @@
 						//key="This is a private key"+pass;
 						//encrypt= rc4(key, pass);
 						//$("#password").val(encrypt);
-
 					     
 						//var formData="username="+username+"&usr_usertype="+usr_usertype+"&key="+key+"&encrypt="+encrypt;
 						var formData="username="+username+"&usr_usertype="+usr_usertype+"&password="+pass;
@@ -35,7 +34,7 @@
 								dataType: 'json',
 								data: formData,
 								success: onSuccess,
-								error:onError
+								error: onError
 							});
 					}
 				});
@@ -90,11 +89,8 @@
 				}
 	
          }
-      function onError(msg)
-         {  
-		 
-		 
-			alertpopup(msg.responseText);
+         function onError(data, status)
+         {  alert("Error");
 			/*navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
@@ -102,18 +98,3 @@
 			'Ok'                  // buttonName
 			);*/
          }  
-		 /* function OnError(xhr, errorType, exception) 
-		 {
-                var responseText;
-              $("#dialog").html("");
-                try {
-                    responseText = jQuery.parseJSON(xhr.responseText);
-                    $("#dialog").append("<div><b>" + errorType + " " + exception + "</b></div>");
-                    $("#dialog").append("<div><u>Exception</u>:<br /><br />" + responseText.ExceptionType + "</div>");
-                    $("#dialog").append("<div><u>StackTrace</u>:<br /><br />" + responseText.StackTrace + "</div>");
-                    $("#dialog").append("<div><u>Message</u>:<br /><br />" + responseText.Message + "</div>");
-                } catch (e) {
-                    responseText = xhr.responseText;
-                    $("#dialog").html(responseText);
-                }
-		 } */
