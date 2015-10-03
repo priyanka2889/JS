@@ -142,8 +142,9 @@
 					if(data.status=="1")
 					{
 					  alert(data.msg);
+					    window.location.reload();
 						window.location.hash = "#dashboard_page";
-						window.location.reload();
+						
 					}
 					else
 					{
@@ -428,9 +429,9 @@
 					dataType:"json",
 					data:formdata+"&type=basic",
 					success:function(data){
-							//alert(data)
-							window.location.hash = "#my_profile";
 							window.location.reload();
+							window.location.hash = "#my_profile";
+							
 							},
 					error: function(){alert("error");}   
 				});
@@ -476,9 +477,9 @@
 				dataType:"json",
 				data:formdata+"&type=experience",
 				success:function(data){
-					  //  alert(data)
+					    window.location.reload();
 						window.location.hash = "#my_profile";
-						window.location.reload();
+						
 						},
 				error: function(){alert("error");}   
 			});
@@ -555,8 +556,9 @@
 				dataType:"json",
 				data:formdata+"&type=education",
 				success:function(data){
+					    window.location.reload();
 						window.location.hash = "#my_profile";
-						window.location.reload();
+						
 						//alert(data);
 						},
 				error: function(){alert("error");}   
@@ -612,9 +614,9 @@
 				dataType:"json",
 				data:"type=save_skills&skills="+skills,
 				success:function(data){
-						//alert(data);
-						window.location.hash = "#my_profile";
 						window.location.reload();
+						window.location.hash = "#my_profile";
+						
 						
 						},
 				error: function(){alert("error");}   
@@ -673,9 +675,9 @@
 				dataType:"json",
 				data:"type=save_languages&js_language="+language,
 				success:function(data){
+					    window.location.reload();
 						window.location.hash = "#my_profile";
-						window.location.reload();
-						//alert(data);
+						
 						},
 				error: function(){alert("error");}   
 			
@@ -769,8 +771,9 @@
 				success:function(data){
 				 //  alert(data);
 					$(".jobs_applied").prop("disabled",true);
-					window.location.hash = "#recommended_job_page";
 					window.location.reload();
+					window.location.hash = "#recommended_job_page";
+					
 					
 				},
 				error: function(){alert("error");}   
