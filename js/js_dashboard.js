@@ -53,7 +53,8 @@
 			}
 
 		 $('#resumeupload').submit(function () {
-            formData = new FormData($(this)[0]);
+			 Id=$("#Id").val();
+            formData = new FormData($(this));
             $.ajax({
                 type:'POST',
                 url: base_url+"resumeupload",
@@ -61,10 +62,11 @@
                 contentType: false,
                 processData: false,
                 error:function (jqXHR, textStatus, errorThrown) {
-                    alert('Failed to upload file')
+                  alert('Failed to upload file');
+				     
                 },
                 success:function () {
-                    alert('File uploaded')
+                    alert('File uploaded');
                 }
 				})
             return false
