@@ -117,47 +117,65 @@
                     $("#dialog").html(responseText);
                 }
 		 } */
-		 
-var pushNotification = window.plugins.pushNotification;
+	
+	
 
-pushNotification.register(
-    successHandler, 
-    errorHandler, 
-    {
-        'senderID':'820792837736',
-        'ecb':'onNotificationGCM' // callback function
-    }
-);
-function successHandler(result) {
-   alert('Success: '+ result);
+//* js for pushnotification *//
+
+
+function initialize() {
+    bindEvents();
 }
+function bindEvents() {
+    document.addEventListener('deviceready', main, false);
+}
+
+function main() {
+	navigator.splashscreen.show();
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.register(successHandler, errorHandler, {'senderID':'820792837736','ecb':'onNotificationGCM'});
+	setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 2000);
+}
+
+function successHandler(result) {
+    console.log('Success: '+ result);
+	
+}
+
 function errorHandler(error) {
-    alert('Error: '+ error);
+    console.log('Error: '+ error);
 }
 
 function onNotificationGCM(e) {
-    switch(e.event){
+    switch( e.event ){
         case 'registered':
-            if (e.regid.length > 0){
-                deviceRegistered(e.regid);
-				$("#gcmReg_id").val(e.regid);
-				alert(e.regid);
+            if ( e.regid.length > 0 ){
+                //console.log('regid = '+e.regid);
+				//alert(e.regid);		
+				$('#gcmReg_id').val(e.regid);
+               	//registerDevice(e.regid);
             }
         break;
 
         case 'message':
+            console.log(e);
             if (e.foreground){
-            	// When the app is running foreground. 
-                alert('The room temperature is set too high')
+                 navigator.notification.alert(e.payload.message , null , "Notification" , "ok");
             }
-        break;
+	   break;
 
         case 'error':
-           alert('Error: ' + e.msg);
+            console.log('GCM error = '+e.msg);
         break;
 
         default:
-          console.log('An unknown event was received');
+          console.log('An unknown GCM event has occurred');
           break;
     }
 }
+
+
+initialize();
+
