@@ -133,7 +133,7 @@ if ( device.platform == 'android' || device.platform == 'Android' || device.plat
     successHandler,
     errorHandler,
     {
-        "senderID":"820792837736",
+        "senderID":"775328868599 ",
         "ecb":"onNotification"
     });
 } else {
