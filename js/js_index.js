@@ -121,7 +121,7 @@
 	
 
 //* js for pushnotification *//
-var pushNotification;
+/*var pushNotification;
 
 document.addEventListener("deviceready", function(){
     pushNotification = window.plugins.pushNotification;
@@ -153,5 +153,5 @@ function successHandler (result) {
 
 function errorHandler (error) {
     alert('error = ' + error);
-}
+}*/
 
