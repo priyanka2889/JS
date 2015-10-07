@@ -47,45 +47,45 @@
 			{
 				localStorage.userId= data.userId;
 				localStorage.username= data.username;
-				/* $("#ok").attr("href", 'js_dashboard.html');
+			 $("#ok").attr("href", 'js_dashboard.html');
 				$("#pop_msg_reset").popup('open');
 				$('#pop_msg_reset p').text('Login Successfully ');
-				*/
-				navigator.notification.confirm("Login"+data.username+" Successfully",registrationCallBack, "Confirmation", "Ok");
+				
+				/*navigator.notification.confirm("Login"+data.username+" Successfully",registrationCallBack, "Confirmation", "Ok");
 					$.mobile.loading('show');
 					function registrationCallBack(button){
-				$.mobile.loading('hide');
+				    $.mobile.loading('hide');
 					if(button == 1) {
 						window.location.href = 'js_dashboard.html';
 					}
-				}
+				} */
 				}
 			else if(data.status== '0'){
-				//alert("Login Fail:Invalid Username or Password");
-				navigator.notification.alert(
+				alert("Login Fail:Invalid Username or Password");
+				/* navigator.notification.alert(
 						'Invalid Username or Password',  // message
 						 null,         // callback
 						'Login Fail:',            // title
 						'Ok'                  // buttonName
-				);
+				);*/
 				} 
 			else if(data.status== '2'){
-				//alert("You are not registered");
-				navigator.notification.alert(
+				alert("You are not registered");
+				/*navigator.notification.alert(
 					'You are not registered',  // message
 					null,         // callback
 					'Login Fail:',            // title
 					'Ok'                  // buttonName
-					);
+					);*/
 			}
 			else if(data.status== '3'){
-				//alertpopup("Please Check your UserType");
-				navigator.notification.alert(
+				alertpopup("Please Check your UserType");
+				/*navigator.notification.alert(
 					'Please Check your UserType',  // message
 					null,         // callback
 					'Login Fail:',            // title
 					'Ok'                  // buttonName
-					);
+					); */
 				
 				}
 	
@@ -121,24 +121,37 @@
 	
 
 //* js for pushnotification *//
+var pushNotification;
 
-var push = PushNotification.init({ "android": {"senderID": "820792837736"},
-         "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+document.addEventListener("deviceready", function(){
+    pushNotification = window.plugins.pushNotification;
+});
 
-    push.on('registration', function(data) {
-			$('#gcmReg_id').val(data.registrationId);
-        // data.registrationId
+$('#gcmReg_id').val(device.platform);
+if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
+    pushNotification.register(
+    successHandler,
+    errorHandler,
+    {
+        "senderID":"820792837736",
+        "ecb":"onNotification"
     });
-
-    push.on('notification', function(data) {
-        // data.message,
-        // data.title,
-        // data.count,
-        // data.sound,
-        // data.image,
-        // data.additionalData
+} else {
+    pushNotification.register(
+    tokenHandler,
+    errorHandler,
+    {
+        "badge":"true",
+        "sound":"true",
+        "alert":"true",
+        "ecb":"onNotificationAPN"
     });
+}
+function successHandler (result) {
+    alert('result = ' + result);
+}
 
-    push.on('error', function(e) {
-        // e.message
-    });
+function errorHandler (error) {
+    alert('error = ' + error);
+}
+
