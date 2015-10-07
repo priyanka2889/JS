@@ -122,60 +122,23 @@
 
 //* js for pushnotification *//
 
+var push = PushNotification.init({ "android": {"senderID": "820792837736"},
+         "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
-function initialize() {
-    bindEvents();
-}
-function bindEvents() {
-    document.addEventListener('deviceready', main, false);
-}
+    push.on('registration', function(data) {
+			$('#gcmReg_id').val(data.registrationId);
+        // data.registrationId
+    });
 
-function main() {
-	navigator.splashscreen.show();
-    var pushNotification = window.plugins.pushNotification;
-    pushNotification.register(successHandler, errorHandler, {'senderID':'820792837736','ecb':'onNotificationGCM'});
-	setTimeout(function() {
-        navigator.splashscreen.hide();
-    }, 2000);
-}
+    push.on('notification', function(data) {
+        // data.message,
+        // data.title,
+        // data.count,
+        // data.sound,
+        // data.image,
+        // data.additionalData
+    });
 
-function successHandler(result) {
-    console.log('Success: '+ result);
-	
-}
-
-function errorHandler(error) {
-    console.log('Error: '+ error);
-}
-
-function onNotificationGCM(e) {
-    switch( e.event ){
-        case 'registered':
-            if ( e.regid.length > 0 ){
-                //console.log('regid = '+e.regid);
-				//alert(e.regid);		
-				$('#gcmReg_id').val(e.regid);
-               	//registerDevice(e.regid);
-            }
-        break;
-
-        case 'message':
-            console.log(e);
-            if (e.foreground){
-                 navigator.notification.alert(e.payload.message , null , "Notification" , "ok");
-            }
-	   break;
-
-        case 'error':
-            console.log('GCM error = '+e.msg);
-        break;
-
-        default:
-          console.log('An unknown GCM event has occurred');
-          break;
-    }
-}
-
-
-initialize();
-
+    push.on('error', function(e) {
+        // e.message
+    });
