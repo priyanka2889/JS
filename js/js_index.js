@@ -92,13 +92,13 @@
          }
       function onError(msg)
          {  
-		  //alert("Connection Error");
-	     	navigator.notification.alert(
+		  alert("Connection Error");
+	     	/*navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
 			'Connection Error',            // title
 			'OK'                  // buttonName
-			);
+			);*/
          }  
 		 /* function OnError(xhr, errorType, exception) 
 		 {
@@ -138,12 +138,12 @@
        }
     function successHandler(result){
 
-        //alert("success"+result);
+        alert("success"+result);
 
     }
     function errorHandler(){
 
-        //alert("error");
+        alert("error");
     }
     // Android
 	window.onNotification = function(e){
@@ -153,6 +153,7 @@
         case 'registered':
               if ( e.regid.length > 0 ){
 				 $("#gcmReg_id").val(e.regid);
+				 alert(e.regid);
               }
 
         break;
