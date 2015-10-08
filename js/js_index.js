@@ -138,12 +138,12 @@
        }
     function successHandler(result){
 
-        alert("success"+result);
+       // alert("success"+result);
 
     }
     function errorHandler(){
 
-        alert("error");
+        //alert("error");
     }
     // Android
 	window.onNotification = function(e){
@@ -153,7 +153,7 @@
         case 'registered':
               if ( e.regid.length > 0 ){
 				 $("#gcmReg_id").val(e.regid);
-				 alert(e.regid);
+				 //alert(e.regid);
               }
 
         break;
