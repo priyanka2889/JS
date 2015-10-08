@@ -12,7 +12,9 @@
 <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
 <gap:plugin name="com.phonegap.plugins.pushplugin"  />
 
-
+<platform name="android">
+        <preference name="Fullscreen" value="true" />
+    </platform>
     <!-- versionCode is optional and Android only -->
     <name>JobSeeker</name>
 

@@ -92,9 +92,7 @@
          }
       function onError(msg)
          {  
-		 
-		 
-			//alert("Connection Error");
+		  //alert("Connection Error");
 	     	navigator.notification.alert(
 			'Error',  // message
 			null,         // callback
@@ -121,37 +119,64 @@
 	
 
 //* js for pushnotification *//
-/*var pushNotification;
+    var pushNotification;
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
 
-document.addEventListener("deviceready", function(){
-    pushNotification = window.plugins.pushNotification;
-});
+        pushNotification = window.plugins.pushNotification;
+        setupNotificationsForandroid();
+    }
+   //begin setup
+    function setupNotificationsForandroid() {
+            pushNotification.register(
+            successHandler,
+            errorHandler,
+            {
+                "senderID":"820792837736",
+                "ecb":"onNotification"
+            });
+       }
+    function successHandler(result){
 
-$('#gcmReg_id').val(device.platform);
-if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-    pushNotification.register(
-    successHandler,
-    errorHandler,
-    {
-        "senderID":"775328868599 ",
-        "ecb":"onNotification"
-    });
-} else {
-    pushNotification.register(
-    tokenHandler,
-    errorHandler,
-    {
-        "badge":"true",
-        "sound":"true",
-        "alert":"true",
-        "ecb":"onNotificationAPN"
-    });
-}
-function successHandler (result) {
-    alert('result = ' + result);
-}
+        //alert("success"+result);
 
-function errorHandler (error) {
-    alert('error = ' + error);
-}*/
+    }
+    function errorHandler(){
+
+        //alert("error");
+    }
+    // Android
+	window.onNotification = function(e){
+   // function onNotification(e) {
+        switch( e.event )
+        {
+        case 'registered':
+              if ( e.regid.length > 0 ){
+				 $("#gcmReg_id").val(e.regid);
+              }
+
+        break;
+
+        case 'message':
+                // if this flag is set, this notification happened while we were in the foreground.
+            if(e.foreground){
+                var soundfile = e.soundname || e.payload.sound;
+                var my_media = new Media("android/assets/www/"+ soundfile);
+                my_media.play();
+            }else{
+               // otherwise we were launched because the user touched a notification in the notification tray.
+            }
+
+
+            break;
+
+        case 'error':
+             alert("Error"+e.msg);
+               break;
+
+        default:
+          alert("An unknown event");
+            return;
+      }
+    } 
 
