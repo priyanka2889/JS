@@ -92,7 +92,7 @@
             options.params = params;
 			alert(imageURI);
             var ft = new FileTransfer();
-            ft.upload(imageURI, encodeURI("http://bluesys.in/dev/recruitmentbackend/public/resumeupload"), win, fail, options);
+            ft.upload(imageURI, encodeURI("http://bluesys.in/dev/recruitmentbackend/upload.php"), win, fail, options);
         }
 
         function win(r) {
