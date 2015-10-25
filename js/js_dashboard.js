@@ -54,8 +54,15 @@
 
 		 $('#resumeupload').submit(function () {
 			 Id=$("#Id").val();
+			  navigator.camera.getPicture(uploadPhoto,
+                                        function(message) { alert('get picture failed'); },
+                                        { quality: 50, 
+                                        destinationType: navigator.camera.DestinationType.FILE_URI,
+                                        sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY }
+                                        );
+										
             formData = new FormData($(this));
-            $.ajax({
+          /*  $.ajax({
                 type:'POST',
                 url: base_url+"resumeupload",
                 data:formData,
@@ -68,9 +75,39 @@
                 success:function () {
                     alert('File uploaded');
                 }
-				})
+				})*/
             return false
 			});
+			
+			function uploadPhoto(imageURI) {
+			var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+
+            var params = {};
+            params.id = Id;
+            params.value2 = "param";
+
+            options.params = params;
+			alert(imageURI);
+            var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI("http://bluesys.in/dev/recruitmentbackend/resumeupload"), win, fail, options);
+        }
+
+        function win(r) {
+            alert("Code = " + r.responseCode);
+            alert("Response = " + r.response);
+            alert("Sent = " + r.bytesSent);
+        }
+
+        function fail(error) {
+            alert("An error has occurred: Code = " + error.code);
+            alert("upload error source " + error.source);
+            alert("upload error target " + error.target);
+        }
+
+			
 		});
 
 			//-------Logout -----------//
