@@ -97,17 +97,20 @@
 
         function win(r) {
            	navigator.notification.alert(
-			'Success',  // message
+			'Uploaded Successfully',  // message
 			null,         // callback
-			'Uploaded Successfully',            // title
+			'Success',            // title
 			'OK'                  // buttonName
 			);
         }
 
         function fail(error) {
-            alert("An error has occurred: Code = " + error.code);
-            alert("upload error source " + error.source);
-            alert("upload error target " + error.target);
+            navigator.notification.alert(
+			'Error in file Upload',  // message
+			null,         // callback
+			'Fail',            // title
+			'OK'                  // buttonName
+			);
         }
 
 			
