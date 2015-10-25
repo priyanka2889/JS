@@ -96,9 +96,12 @@
         }
 
         function win(r) {
-            alert("Code = " + r.responseCode);
-            alert("Response = " + r.response);
-            alert("Sent = " + r.bytesSent);
+           	navigator.notification.alert(
+			'Success',  // message
+			null,         // callback
+			'Uploaded Successfully',            // title
+			'OK'                  // buttonName
+			);
         }
 
         function fail(error) {
