@@ -90,7 +90,7 @@
             params.value2 = "param";
 
             options.params = params;
-			alert(imageURI);
+			//alert(imageURI);
             var ft = new FileTransfer();
             ft.upload(imageURI, encodeURI("http://bluesys.in/dev/recruitmentbackend/upload.php"), win, fail, options);
         }
