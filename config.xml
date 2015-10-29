@@ -29,7 +29,7 @@
 <splash src="img/splash_converted_320.png"   density="xhdpi" />
 	
 <preference name="AutoHideSplashScreen" value="false" />
- <preference name="SplashScreenDelay" value="10000" />
+ <preference name="SplashScreenDelay" value="20000" />
  <preference name="SplashMaintainAspectRatio" value="true|false" />
 </platform>
  
