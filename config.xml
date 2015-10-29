@@ -21,7 +21,7 @@
 
 
 <platform name="android">
-        <preference name="Fullscreen" value="true" />
+
 <gap:splash src="img/splash.png" />
 <gap:splash src="img/splash_converted_120.png"  gap:platform="android" gap:density="ldpi" />
 <gap:splash src="img/splash_converted_160.png"  gap:platform="android" gap:density="mdpi" />
