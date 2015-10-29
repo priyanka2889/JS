@@ -30,8 +30,8 @@
 <gap:splash src="img/splash_converted_240.png" gap:platform="android" gap:density="hdpi" />
 <gap:splash src="img/splash_converted_320.png" gap:platform="android" gap:density="xhdpi" />
 <gap:splash src="img/splash_converted_480.png" gap:platform="android" gap:density="xxhdpi" />
-
-<preference name="SplashScreen" value="img/splash.png" />
+<splash src="img/splash.png" />
+<preference name="SplashScreen" value="screen" />
 <preference name="AutoHideSplashScreen" value="false" />
 <preference name="SplashScreenDelay" value="3000" />
 <platform name="android">
