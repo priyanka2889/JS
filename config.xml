@@ -28,7 +28,7 @@
 <gap:splash src="img/splash_converted_240.png"  gap:platform="android" gap:density="hdpi" />
 <gap:splash src="img/splash_converted_320.png" gap:platform="android" gap:density="xhdpi" />
 	
-<preference name="AutoHideSplashScreen" value="true" />
+<preference name="AutoHideSplashScreen" value="false" />
  <preference name="SplashScreenDelay" value="10000" />
  <preference name="SplashMaintainAspectRatio" value="true|false" />
 </platform>
