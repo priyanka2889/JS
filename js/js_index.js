@@ -125,6 +125,7 @@
 
         pushNotification = window.plugins.pushNotification;
         setupNotificationsForandroid();
+		navigator.splashscreen.show();
     }
    //begin setup
     function setupNotificationsForandroid() {
