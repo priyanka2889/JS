@@ -19,19 +19,23 @@
 <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
 <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
 
-
-<platform name="android">
-
-<splash src="img/splash.png" />
-<splash src="img/splash_converted_120.png"   density="ldpi" />
-<splash src="img/splash_converted_160.png"   density="mdpi" />
-<splash src="img/splash_converted_240.png"   density="hdpi" />
-<splash src="img/splash_converted_320.png"   density="xhdpi" />
+<gap:splash src="img/splash_converted_120.png" gap:platform="android" gap:qualifier="ldpi" />
+<gap:splash src="img/splash_converted_160.png" gap:platform="android" gap:qualifier="mdpi" />
+<gap:splash src="img/splash_converted_240.png" gap:platform="android" gap:qualifier="hdpi" />
+<gap:splash src="img/splash_converted_320.png" gap:platform="android" gap:qualifier="xhdpi" />
+<gap:splash src="img/splash_converted_480.png" gap:platform="android" gap:qualifier="fr-xhdpi" />
+<gap:splash src="img/splash_converted_640.png" gap:platform="android" gap:qualifier="port-xxhdpi" />
+<gap:splash src="img/splash_converted_120.png" gap:platform="android" gap:density="ldpi" />
+<gap:splash src="img/splash_converted_160.png" gap:platform="android" gap:density="mdpi" />
+<gap:splash src="img/splash_converted_240.png" gap:platform="android" gap:density="hdpi" />
+<gap:splash src="img/splash_converted_320.png" gap:platform="android" gap:density="xhdpi" />
+<gap:splash src="img/splash_converted_480.png" gap:platform="android" gap:density="xxhdpi" />
 
 <preference name="SplashScreen" value="img/splash.png" />
 <preference name="AutoHideSplashScreen" value="false" />
- <preference name="SplashScreenDelay" value="20000" />
- <preference name="SplashMaintainAspectRatio" value="true|false" />
+<preference name="SplashScreenDelay" value="20000" />
+<platform name="android">
+
 </platform>
  
     <!-- versionCode is optional and Android only -->
