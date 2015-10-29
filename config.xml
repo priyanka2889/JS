@@ -22,13 +22,18 @@
 
 <platform name="android">
         <preference name="Fullscreen" value="true" />
-		<splash src="img/splash.png" />
-		<preference name="SplashScreen" value="img/splash.png" />
-<preference name="SplashScreenDelay" value="3000" />
-<preference name="SplashMaintainAspectRatio" value="true|false" />
-  </platform>
-  
+	<splash src="img/splash.png" density="land-hdpi"/>
+    <splash src="img/splash.png" density="land-ldpi"/>
+    <splash src="img/splash.png" density="land-mdpi"/>
+    <splash src="img/splash.png" density="land-xhdpi"/>
+
+    <splash src="img/splash.png" density="port-hdpi"/>
+    <splash src="img/splash.png" density="port-ldpi"/>
+    <splash src="img/splash.png" density="port-mdpi"/>
+    <splash src="img/splash.png" density="port-xhdpi"/>
+</platform>
   <preference name="SplashScreenDelay" value="3000" />
+  <preference name="SplashMaintainAspectRatio" value="true|false" />
     <!-- versionCode is optional and Android only -->
     <name>JobSeeker</name>
 
