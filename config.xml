@@ -21,7 +21,7 @@
 
 <!-- Splash Screen  -->
 <platform name="browser">
-    <preference name="SplashScreen" value="img/splash.jpg" /> <!-- defaults to "img/logo.png" -->
+    <preference name="SplashScreen" value="img/splash.png" /> <!-- defaults to "img/logo.png" -->
     <preference name="SplashScreenDelay" value="3000" /> <!-- defaults to "3000" -->
     <!--  <preference name="SplashScreenBackgroundColor" value="green" />  defaults to "#464646" -->
     <preference name="ShowSplashScreen" value="false" /> <!-- defaults to "true" -->
