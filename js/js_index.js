@@ -122,14 +122,10 @@
     var pushNotification;
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        navigator.splashscreen.show();
+
         pushNotification = window.plugins.pushNotification;
         setupNotificationsForandroid();
-		
-		setTimeout(function() {
-        navigator.splashscreen.hide();
-    }, 5000);
-	
+
     }
    //begin setup
     function setupNotificationsForandroid() {
