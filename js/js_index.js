@@ -127,7 +127,7 @@
         setupNotificationsForandroid();
 			setTimeout(function() {
         navigator.splashscreen.hide();
-    }, 10000);
+    }, 3000);
 		
 		
 	
