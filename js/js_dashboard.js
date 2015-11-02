@@ -761,8 +761,8 @@
 					var class1 =status==1?'':'jobs_apply'
 					var experience=item.job_min_exp+" - "+item.job_max_exp+"Years";
 					var salary=item.job_ctc_type+" "+item.job_min_ctc+" - "+item.job_max_ctc+"K P.A";
-				    $("#content_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
-					$("#content_list li").append("<a href='#' class='"+class1+" "+icon+"'></a>");
+				    $("#content_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs' style='background: transparent;'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
+					$("#content_list li").append("<a href='#' class='"+class1+" "+icon+"' style='background: transparent;'></a>");
 					$("#content_list").listview().listview('refresh');
 																				
 					});					
@@ -858,8 +858,8 @@ function jobsearch(page)
 							var status=item.ja_status;
                             var experience=item.job_min_exp+" - "+item.job_max_exp+"Years";
 						    var salary=item.job_ctc_type+" "+item.job_min_ctc+" - "+item.job_max_ctc+"K P.A";
-						    $("#search_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
-							$("#search_list li").append("<a href='#' class='jobs_apply'></a>");
+						    $("#search_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs' style='background:transparent;'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
+							$("#search_list li").append("<a href='#' class='jobs_apply' style='background:transparent;'></a>");
 							$("#search_list").listview().listview('refresh');
 												
 					});		
@@ -897,7 +897,7 @@ $(document).on("pageinit",'#applied_jobList',function(){
 			    $.each(data.appliedjobs,function(i,item) {	
 				var experience=item.job_min_exp+" - "+item.job_max_exp+"Years";
 				var salary=item.job_ctc_type+" "+item.job_min_ctc+" - "+item.job_max_ctc+"K P.A";
-				$("#applied_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
+				$("#applied_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs' style='background:transparent;'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
 				$("#applied_list").listview().listview('refresh');
 																		
 			});					
@@ -937,8 +937,8 @@ $(document).on("pageinit",'#applied_jobList',function(){
 							var status=item.ja_status;
                             var experience=item.job_min_exp+" - "+item.job_max_exp+"Years";
 						    var salary=item.job_ctc_type+" "+item.job_min_ctc+" - "+item.job_max_ctc+"K P.A";
-						    $("#search_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
-							$("#search_list li").append("<a href='#' class='jobs_apply'></a>");
+						    $("#search_list").append("<li id="+item.Id+" data-name='job_details="+item.job_title+"="+item.job_cmpny_name+"="+experience+"="+item.job_no_of_vacancy+"="+item.job_location+"="+salary+"="+item.job_posted+"="+item.job_description+"="+item.job_keywords+"="+item.job_candidate_profile+"="+item.job_UG_qualification+"="+item.job_PG_qualification+"="+item.job_qualification_other+"'><a href='#jobs_details_page' class='view_details_jobs' style='background:transparent;'>"+item.job_title+"<br> "+item.job_cmpny_name+"<br>"+experience+"<br>"+item.job_location+"</a></li>");
+							$("#search_list li").append("<a href='#' class='jobs_apply' style='background:transparent;'></a>");
 							$("#search_list").listview().listview('refresh');
 																				
 					});	

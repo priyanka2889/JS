@@ -24,7 +24,13 @@
 				<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 				<script type="text/javascript" src="js/PushNotification.js"></script>
 				<script src="js/js_index.js"></script>
-				
+				<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+				<style>
+				html *
+				{
+				font-family: 'Quicksand', sans-serif !important;
+				}
+				</style>
 				<!-- <script type="text/javascript" charset="utf-8" src="cordova.js"></script>-->
 
 		</head> 
@@ -35,12 +41,12 @@
 		  </div><!-- /header -->
 			<!-----content---->
 		  <div data-role="content"> 
-		  	<form id="login" method="post">
+		  	<form id="login" method="post">Your City
 					<label><h3>Sign In</h3></label>
 					<label for="username">User Name</label>
-					<input type="text" name="username" id="username" value="" required />
+					<input type="text" name="username" id="username" value="" placeholder="Username" required />
 					<label for="txt-password">Password</label>
-					<input type="password" name="password" id="password" value="" required />
+					<input type="password" name="password" id="password"  placeholder="Password" value="" required />
 					<input type="hidden" name="usr_usertype" id="usr_usertype" value="3" />
 					<input type="hidden" name="gcmReg_id" id="gcmReg_id" value="" />
 					<fieldset data-role="controlgroup">

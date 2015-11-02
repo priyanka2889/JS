@@ -9,7 +9,7 @@
 				<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 				<script src="js/jquery-1.11.1.min.js"></script>
 				<script src="js/jquery.mobile-1.4.5.min.js"></script>
-				<link rel="stylesheet" type="text/css" href="css/common.css">
+				
 	<link rel="stylesheet" href="css/themes3/lightblue.min.css" />
 <link rel="stylesheet" href="css/themes3/jquery.mobile.icons.min.css" />
 				<!---------------------DATE BOX ---------------------->
@@ -23,10 +23,15 @@
 				<!--<script src="js/uploadimage.js"></script>-->
 				<script src="js/common.js"></script>
 				<script src="js/js_dashboard.js"></script>
-				<link rel="stylesheet" type="text/css" href="css/common.css">
 			    <link rel="stylesheet"  href="css/dist/jqm-icon-pack-fa.css" />
 				<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-	
+				<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+				<style>
+				html *
+				{
+				font-family: 'Quicksand', sans-serif !important;
+				}
+				</style>
 	
 	</head>
 	<body>
@@ -35,7 +40,7 @@
 	<input type="hidden" id="Id" size="30" name="Id" value="" /> 
 	<input type="hidden" id="usr_name" size="30" name="usr_name" value=""/>
 		<!-------MAIN DASHBOARD PAGE------->
-		<div data-role="page" id="dashboard_page" data-theme="a">
+		<div data-role="page" id="dashboard_page">
 			<div data-role="header" >
 			<img border="0" src="" alt="user_pic" id="usericonpic" style="float:right;display:inline" width="40px" height="40px" onerror="imgError(this);" />
 			<h1><div id="username" ></div></h1>
@@ -68,7 +73,7 @@
 				</div>
 			</div><!---/CONTENT--->	
 			<!-----PANEL---->
-			<div data-role="panel" id="left-panel" data-theme="b" data-display="overlay">
+			<div data-role="panel" id="left-panel" data-theme="a" data-display="overlay">
 				<ul data-role="listview">
 				<li data-icon="false">
 					<div class="img-preview">
@@ -96,10 +101,10 @@
 		  </div>
 		   <div data-role="content">
 		  <div>
-					<ul data-role="lisview" id="search_list" data-inset="true"  data-split-icon="action" ></ul>
+					<ul data-role="lisview" id="search_list"  style='background-image: url("css/images/list_bg1.jpg");' data-split-icon="action" ></ul>
 		  </div>
 		   <div >
-					<ul data-role="lisview" id="adsearch_list" data-inset="true"  data-split-icon="action" ></ul>
+					<ul data-role="lisview" id="adsearch_list" style='background-image: url("css/images/list_bg1.jpg");' data-split-icon="action" ></ul>
 		  </div>
 		</div>
 		</div>
@@ -110,7 +115,7 @@
 		  </div>
 		 <div data-role="content">
 		  <div>
-					<ul data-role="lisview" id="applied_list" data-inset="true"></ul>
+					<ul data-role="lisview" id="applied_list" style='background-image: url("css/images/list_bg1.jpg");'></ul>
 		  </div>
 		</div>
 		</div>
@@ -191,13 +196,13 @@
 							</div>
 						</fieldset>	
 						
-					    <fieldset class="ui-field-contain">
-							<input type="submit" id="ad_search_jobs" name="ad_search_jobs" value="Search" data-ajax="false"  data-theme="b">
+					    <fieldset>
+							<input type="submit" id="ad_search_jobs" name="ad_search_jobs" class="ui-btn ui-icon-search ui-btn-icon-left" value="Search" data-ajax="false" >
 						</fieldset>
 					</form><!---/SEARCH FORM ENDS----->
 			</div><!---/CONTENT--->	
 			<!-----PANEL---->
-			<div data-role="panel" id="search_left_panel" data-theme="b" data-display="overlay">
+			<div data-role="panel" id="search_left_panel" data-display="overlay">
 				<ul data-role="listview">
 					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><img src="images/user.png" alt="Profile Pic"><div id="panel3_username"></div></a></li>
 					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
@@ -234,7 +239,7 @@
 						<label for="js_new_pass_c">Confirm Password</label>
 						<input type="password" id="js_new_pass_c" size="150" name="js_new_pass_c" > 
 					</fieldset>
-					<input type="submit" id="change_pass_save" data-theme="b" name="change_pass_save" value="Save" class="ui-btn ui-shadow ui-corner-all ui-btn-b ">
+					<input type="submit" id="change_pass_save" name="change_pass_save" value="Save" class="ui-btn ui-shadow ui-corner-all ui-btn-b ">
 				</form>
 			</div><!---/CONTENT--->	
 		</div>	<!----/CHANGE PASSWORD PAGE-->
@@ -274,7 +279,7 @@
 				<ul data-role="listview" id="language_details"  data-inset="true">
 				</ul><br>
 				<ul data-role="listview" id="uploadresume"  data-inset="true">
-				<li data-role="list-divider" data-theme="a">Upload resume</li>
+				<li data-role="list-divider">Upload resume</li>
 				  <li id="previousResume" ></li>
 				  <li >
 				  <form name="resumeupload" id="resumeupload" enctype="multipart/form-data">
@@ -282,13 +287,13 @@
 				  <input type="hidden" id="serverUrl" name="serverUrl">
 				  <input type="hidden" id="userid" name="Id">
 				 <!-- <input type="file" id="file" name="file" >-->
-				  <input type="submit" id="upload" name="upload" data-ajax="false" value="upload" data-theme="b" data-inline="true">
+				  <input type="submit" id="upload" name="upload" data-ajax="false" value="upload"  data-inline="true">
 				  </form>
 				  <br><div id="status"></div></li>
 				</ul>
 			</div><!------/CONTENT---->
 			<!-----PANEL---->
-			<div data-role="panel" id="profile_panel" data-theme="b" data-display="overlay">
+			<div data-role="panel" id="profile_panel" data-display="overlay">
 				<ul data-role="listview">
 					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><img src="images/user.png" alt="Profile Pic"><div id="panel2_username"></div></a></li>
 					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
@@ -345,7 +350,7 @@
 								</select>	
 							</fieldset> 
 							<fieldset class="ui-field-contain">
-								<input type="submit" id="personal_details_save" name="personal_details_save" value="Save" data-theme="b">
+								<input type="submit" id="personal_details_save" name="personal_details_save" value="Save">
 							</fieldset>
 					</form>		
 			</div>
@@ -454,7 +459,7 @@
 							</fieldset>
 							</fieldset>
 							<fieldset class="ui-field-contain">
-								<input type="submit" id="experience_details_save" name="experience_details_save" value="Save" data-theme="b">
+								<input type="submit" id="experience_details_save" name="experience_details_save" value="Save">
 							</fieldset>
 					</form>		
 				
@@ -482,7 +487,7 @@
 								<label for="js_doc_edu">Other Qualification</label>
 								<select id = "js_doc_edu" name="js_doc_edu" size="1"/></select>
 							</fieldset>
-							<input type="submit" id="save_education" name="save_education" value="Add" data-theme="b"/>
+							<input type="submit" id="save_education" name="save_education" value="Add"/>
 					</form><!---/EDIT EDUCATION FORM ENDS----->
 			</div><!----/CONTENT--->
 		</div><!----/EDIT EDUCATION PAGE--->
@@ -500,14 +505,14 @@
 				<form id="keyskills_add_form" name="keyskills_add_form">
 					
 					<input type="text" id="js_keyskills" name="js_keyskills"  />
-					<input type="submit" id="add_skills_submit" name="add_skills_submit" value="Add" data-theme="b"/>
+					<input type="submit" id="add_skills_submit" name="add_skills_submit" value="Add"/>
 				</form>	
 				<br>
 					<ul data-role="listview" id="keyskills_list"  data-inset="true">
 					</ul>
 					
 					<fieldset class="ui-field-contain">
-						<input type="submit" id="submit_skills" name="submit_skills" value="Save" data-theme="b" />
+						<input type="submit" id="submit_skills" name="submit_skills" value="Save" />
 					</fieldset>
 
 				
@@ -524,14 +529,14 @@
 				<form id="language_add_form" name="language_add_form">
 					
 					<input type="text" id="js_language_known" name="js_language_known"  />
-					<input type="submit" id="add_language_submit" name="add_language_submit" value="Add" data-theme="b"/>
+					<input type="submit" id="add_language_submit" name="add_language_submit" value="Add" />
 				</form>	
 				<br>
 					<ul data-role="listview" id="language_list"  data-inset="true">
 					</ul>
 					
 					<fieldset class="ui-field-contain">
-						<input type="submit" id="submit_language" name="submit_language" value="Save" data-theme="b" />
+						<input type="submit" id="submit_language" name="submit_language" value="Save"/>
 					</fieldset>
 
 				
@@ -548,7 +553,7 @@
 			</div>
 			<div data-role="content">
 				<div>
-					<ul data-role="lisview" id="content_list" data-inset="true" data-split-icon="action";  ></ul>
+					<ul data-role="lisview" id="content_list" style='background-image: url("css/images/list_bg1.jpg");' ></ul>
 					
 				</div>	
 			</div><!----/CONTENT--->

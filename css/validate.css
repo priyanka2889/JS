@@ -47,10 +47,10 @@ label.error {
     white-space: unset;
 		}
  .ui-listview > li:hover{
-  background-color:rgba(240, 141, 156, 0.26);
+ /* background-color:rgba(240, 141, 156, 0.26);*/
   }
   .ui-listview > li > a.ui-btn:hover{
-    background-color:rgba(240, 141, 156, 0.26);
+   /* background-color:rgba(240, 141, 156, 0.26);*/
     }
 
      .hidden{
@@ -284,7 +284,7 @@ div#dailyReport .ui-block-a{
 }
 
 input.addimage{
-	background: white url(images/arrow_right.png) right no-repeat;
+	/*background: white url(images/arrow_right.png) right no-repeat;*/
 	padding-right: 20px;
 }	
 
