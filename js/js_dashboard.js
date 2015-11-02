@@ -305,17 +305,17 @@
 				
 				/////DISPLAYING PERSONAL DETAILS///////
 				$("#personal_details").append('<li data-role="list-divider" ><b>Personal Details</b></li>');
-				$("#personal_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_basic" class="profile_details_edit"   data-ajax="false"><div >Email ID:	<p><b>'+item.js_email+'</b></p></div><br><div>Mobile:	'+item.js_mobile+'</div><br><div >Current Location:	'+item.js_city+ '</div><br><div>Date of Birth:	'+item.js_dob+'</div><br><div>Gender:	'+item.js_gender+' </div></a></li>');
+				$("#personal_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_basic" class="profile_details_edit" data-ajax="false" style="background: transparent;"><div >Email ID:	<p><b>'+item.js_email+'</b></p></div><br><div>Mobile:	'+item.js_mobile+'</div><br><div >Current Location:	'+item.js_city+ '</div><br><div>Date of Birth:	'+item.js_dob+'</div><br><div>Gender:	'+item.js_gender+' </div></a></li>');
 				$("#personal_details").listview().listview('refresh');
 				
 				/////DISPLAYING EXPERIENCE DETAILS///////
 				$("#experience_details").append('<li data-role="list-divider" ><b>Experience</b></li>');
-				$("#experience_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_experience" class="profile_details_edit"   data-ajax="false"><div >Profile Title:	<b>'+item.js_resume_head+'</b></div><br><div>Annual Salary:	'+salary+'</div><br><div >Total Experience:	'+experience+ '</div></a></li>');
+				$("#experience_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_experience" class="profile_details_edit"   data-ajax="false" style="background: transparent;"><div >Profile Title:	<b>'+item.js_resume_head+'</b></div><br><div>Annual Salary:	'+salary+'</div><br><div >Total Experience:	'+experience+ '</div></a></li>');
 				$("#experience_details").listview().listview('refresh');
 				
 				/////DISPLAYING EDUCATION DETAILS///////
 				$("#education_details").append('<li data-role="list-divider" ><b>Education</b></li>');
-				$("#education_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_education" class=" profile_details_edit qual_details" ><br><div id="">Under Graduate:'+item.js_basic_edu+'</div><br><div id="">Post Graduate:'+item.js_master_edu+'</div><br><div id="">Doctorate:'+item.js_doc_edu+'</div></a></li>');
+				$("#education_details").append('<li data-icon="edit" Id='+item.js_userid+'><a href="#edit_education" class=" profile_details_edit qual_details"  style="background: transparent;"><br><div id="">Under Graduate:'+item.js_basic_edu+'</div><br><div id="">Post Graduate:'+item.js_master_edu+'</div><br><div id="">Doctorate:'+item.js_doc_edu+'</div></a></li>');
 				$("#education_details").listview().listview('refresh');
 				UG=item.js_basic_edu;
 				PG=item.js_master_edu;
@@ -326,7 +326,7 @@
 				
 				var skills=item.js_keyskills;
 				if(skills==0){
-				$("#keyskills_details").append('<li Id='+item.js_userid+'><a class="profile_details_edit ui-btn ui-icon-plus ui-corner-all  ui-btn-inline" title="Add"  href="#edit_key_skills" data-ajax="false">ADD SKILLS</a></li>');
+				$("#keyskills_details").append('<li Id='+item.js_userid+'><a class="profile_details_edit ui-btn ui-icon-plus ui-corner-all  ui-btn-inline" title="Add"  href="#edit_key_skills" data-ajax="false" style="background: transparent;">ADD SKILLS</a></li>');
 				
 				}
 				else{
@@ -335,18 +335,18 @@
 				for(vari=0;i<key_skills.length;i++)
 				{
 					var keyskills=key_skills[i];
-					$("#keyskills_details").append('<li data-icon="false" Id='+item.js_userid+'><a href="#edit_key_skills" class="profile_details_edit">'+keyskills+' </a></li>');
+					$("#keyskills_details").append('<li data-icon="false" Id='+item.js_userid+'><a href="#edit_key_skills" class="profile_details_edit" style="background: transparent;">'+keyskills+' </a></li>');
 					$("#keyskills_details").listview().listview('refresh');
 				}
 				}
 				
 				
 				/////DISPLAYING LANGUAGE DETAILS///////
-				$("#language_details").append('<li data-role="list-divider" data-theme="a">Languages known</li>');
+				$("#language_details").append('<li data-role="list-divider" data-theme="a" >Languages known</li>');
 				$("#language_details").listview('refresh');
 				var language=item.js_language_known;
 				if(language==0){
-				$("#language_details").append('<li Id='+item.Id+'><a class="profile_details_edit ui-btn ui-icon-plus ui-corner-all  ui-btn-inline" title="Add"  href="#edit_language" data-ajax="false">ADD LANGUAGE</a></li>');
+				$("#language_details").append('<li Id='+item.Id+'><a class="profile_details_edit ui-btn ui-icon-plus ui-corner-all  ui-btn-inline" title="Add"  href="#edit_language" data-ajax="false" style="background: transparent;">ADD LANGUAGE</a></li>');
 					
 				}
 				else{
@@ -355,7 +355,7 @@
 				for(var i=0;i<language_split.length;i++)
 				{
 					var languages=language_split[i];
-					$("#language_details").append('<li data-icon="false" Id='+item.js_userid+'><a href="#edit_language" class="profile_details_edit">'+languages+' </a></li>');
+					$("#language_details").append('<li data-icon="false" Id='+item.js_userid+'><a href="#edit_language" class="profile_details_edit" style="background: transparent;">'+languages+' </a></li>');
 					$("#language_details").listview().listview('refresh');
 				}
 				}
