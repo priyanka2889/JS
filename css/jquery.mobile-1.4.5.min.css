@@ -771,16 +771,16 @@ label.ui-btn {
     cursor: pointer
 }
 .ui-corner-all {
-    -webkit-border-radius: .3125em;
-    border-radius: .3125em
+   /* -webkit-border-radius: .3125em;
+    border-radius: .3125em*/
 }
 .ui-btn-corner-all,
 .ui-btn.ui-corner-all,
 .ui-slider-track.ui-corner-all,
 .ui-flipswitch.ui-corner-all,
 .ui-li-count {
-    -webkit-border-radius: .3125em;
-    border-radius: .3125em
+   /* -webkit-border-radius: .3125em;
+    border-radius: .3125em*/
 }
 .ui-btn-icon-notext.ui-btn-corner-all,
 .ui-btn-icon-notext.ui-corner-all {
@@ -1018,7 +1018,7 @@ html .ui-bar-a .ui-btn:focus,
 html .ui-body-a .ui-btn:focus,
 html body .ui-group-theme-a .ui-btn:focus,
 html head+body .ui-btn.ui-btn-a:focus,
-.ui-page-theme-a .ui-focus,
+/*.ui-page-theme-a .ui-focus,*/
 html .ui-bar-a .ui-focus,
 html .ui-body-a .ui-focus,
 html body .ui-group-theme-a .ui-focus,
@@ -1411,8 +1411,8 @@ div.ui-mobile-viewport {
 }
 .ui-btn {
     font-size: 16px;
-    margin: .5em 0;
-    padding: .7em 1em;
+   /* margin: .5em 0;*/
+    padding: .5em;
     display: block;
     position: relative;
     text-align: center;
@@ -3688,17 +3688,17 @@ fieldset.ui-controlgroup {
 }
 .ui-listview>li.ui-first-child,
 .ui-listview>li.ui-first-child>a.ui-btn {
-    -webkit-border-top-right-radius: inherit;
+   /* -webkit-border-top-right-radius: inherit;
     border-top-right-radius: inherit;
     -webkit-border-top-left-radius: inherit;
-    border-top-left-radius: inherit
+    border-top-left-radius: inherit*/
 }
 .ui-listview>li.ui-last-child,
 .ui-listview>li.ui-last-child>a.ui-btn {
-    -webkit-border-bottom-right-radius: inherit;
+  /*  -webkit-border-bottom-right-radius: inherit;
     border-bottom-right-radius: inherit;
     -webkit-border-bottom-left-radius: inherit;
-    border-bottom-left-radius: inherit
+    border-bottom-left-radius: inherit */
 }
 .ui-listview>li.ui-li-has-alt>a.ui-btn {
     -webkit-border-top-right-radius: 0;
@@ -4147,8 +4147,8 @@ div.ui-rangeslider label {
 }
 .ui-input-text,
 .ui-input-search {
-    margin: .5em 0;
-   /* border-width: 1px;
+  /*  margin: .5em 0;
+    border-width: 1px;
     border-style: solid;*/
 }
 .ui-mini {

@@ -50,16 +50,16 @@
 			    /* $("#ok").attr("href", 'js_dashboard.html');
 				$("#pop_msg_reset").popup('open');
 				$('#pop_msg_reset p').text('Login Successfully ');*/
-				
-				navigator.notification.confirm("Login"+data.username+" Successfully",registrationCallBack, "Confirmation", "Ok");
+				window.location.href = 'js_dashboard.html';
+				/* navigator.notification.confirm("Login"+data.username+" Successfully",registrationCallBack, "Confirmation", "Ok");
 					$.mobile.loading('show');
 					function registrationCallBack(button){
 				    $.mobile.loading('hide');
 					if(button == 1) {
 						window.location.href = 'js_dashboard.html';
 					}
-				} 
-				}
+				} */ 
+			}
 			else if(data.status== '0'){
 				//alert("Login Fail:Invalid Username or Password");
 				 navigator.notification.alert(
