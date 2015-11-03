@@ -946,7 +946,7 @@ html .ui-body-a a:active,
 html body .ui-group-theme-a a:active {
     color: #059
 }
-.ui-page-theme-a .ui-btn,
+
 html .ui-bar-a .ui-btn,
 html .ui-body-a .ui-btn,
 html body .ui-group-theme-a .ui-btn,
@@ -3759,7 +3759,7 @@ fieldset.ui-controlgroup {
     padding-left: 2.5em
 }
 .ui-li-count {
-    position: absolute;
+    /*position: absolute;*/
     font-size: 12.5px;
     font-weight: 700;
     text-align: center;
@@ -3771,7 +3771,8 @@ fieldset.ui-controlgroup {
     min-width: .64em;
     right: .8em;
     top: 50%;
-    margin-top: -.88em
+    margin-top: -.88em;
+	border-radius:50%;
 }
 .ui-listview .ui-btn-icon-right .ui-li-count {
     right: 3.2em

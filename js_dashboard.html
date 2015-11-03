@@ -20,7 +20,7 @@
 				<link rel="stylesheet" type="text/css" href="css/validate.css">
 				<link rel="stylesheet" href="css/pagination.css" /> 
 				<script type="text/javascript" src="js/listPagination.js"></script>
-				<!--<script src="js/uploadimage.js"></script>-->
+				<script src="js/uploadimage.js"></script>
 				<script src="js/common.js"></script>
 				<script src="js/js_dashboard.js"></script>
 			    <link rel="stylesheet"  href="css/dist/jqm-icon-pack-fa.css" />
@@ -42,7 +42,7 @@
 		<!-------MAIN DASHBOARD PAGE------->
 		<div data-role="page" id="dashboard_page">
 			<div data-role="header" >
-			<img border="0" src="" alt="user_pic" id="usericonpic" style="float:right;display:inline" width="40px" height="40px" onerror="imgError(this);" />
+			<!-- <img border="0" src="" alt="user_pic" id="usericonpic" style="float:right;display:inline" width="40px" height="40px" onerror="imgError(this);" /> -->
 			<h1><div id="username" ></div></h1>
 			<a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
 			</div>
@@ -64,34 +64,34 @@
 				</div><!---/SEARCH FORM DASHBOARD----->
 				<br>
 				<div id="list_main">
-					<div  id="list" style="float:left">
-						<ul data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><li data-icon="false"><a href="#recommended_job_page" data-transition="slideup"><p id="multipleline">Recommended Jobs</p> <span class="ui-li-count" id="matched_jobs_count"></span></a></li></ul>
+					<div  id="list">
+						<ul data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><a href="#recommended_job_page" data-transition="slideup"><p id="multipleline">Recommended Jobs &nbsp;<span class="ui-li-count" id="matched_jobs_count"></span></p> </a></ul>
 					</div>
-					<div id="list" style="float:right">
-					<ul  data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><li  data-icon="false"><a href="#applied_jobList" data-transition="slideup"><p id="multipleline">Applied jobs</p><span class="ui-li-count" id="applied_count"></span></a></li></ul>
+					<div id="list">
+					<ul  data-role="listview" data-count-theme="b" data-inset="true" id="matched_ul"><a href="#applied_jobList" data-transition="slideup"><p id="multipleline">Applied jobs &nbsp;<span class="ui-li-count" id="applied_count"></span></p></a></ul>
 					</div>
 				</div>
 			</div><!---/CONTENT--->	
 			<!-----PANEL---->
-			<div data-role="panel" id="left-panel" data-theme="a" data-display="overlay">
+			<div data-role="panel" id="left-panel" data-theme="a">
 				<ul data-role="listview">
 				<li data-icon="false">
 					<div class="img-preview">
-					<img src="" alt="Profile Pic" id="profilePic" style="height:100px;width:100px;" onerror="imgError(this);"></div>
+					<form class="frmUpload" action="" method="post" enctype="multipart/form-data" >
+					<center><a href="#" onclick="selectPicture();"><img src="" alt="Profile Pic" id="profilePic" style="height:100px;width:100px;border-radius:50%;border:1px solid;" onerror="imgError(this);"></a></div>
 					<input type="hidden" id="serverUrl" type="html" value="http://bluesys.in/dev/recruitmentbackend/upload.php" />
-					<span class="fileinput-button">
-					<a onclick="selectPicture();" class="ui-btn ui-icon-arrow-u ui-btn-icon-notext ui-corner-all">upload</a>
-					</span>
+					</center>
+					</form>
 					</li>
 					<li data-icon="edit" ><a href="#my_profile" data-rel="close" ><div id="panel_username"></div></a></li>
-					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >&nbsp;&nbsp;&nbsp;&nbsp;Home</a></li>
-					<li ><a href="#advance_search_page" class="ui-btn ui-icon-search ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Search</a></li>
-					<li><a href="#recommended_job_page"  class="ui-btn ui-icon-briefcase ui-btn-icon-left"  data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Jobs<span class="ui-li-count" id="jobs_panel"></span></a></li>
+					<li><a href="#dashboard_page"  class="ui-btn ui-icon-home ui-btn-icon-left" data-rel="close" data-transition="slideup" >Home</a></li>
+					<li ><a href="#advance_search_page" class="ui-btn ui-icon-search ui-btn-icon-left" data-rel="close" data-transition="slideup">Search</a></li>
+					<li><a href="#recommended_job_page"  class="ui-btn ui-icon-briefcase ui-btn-icon-left"  data-rel="close" data-transition="slideup">Jobs&nbsp;<span class="ui-li-count" id="jobs_panel"></span></a></li>
 					<!--<li><a href="#" class="ui-btn ui-icon-mail ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Inbox<span class="ui-li-count">7</span></a></li>
 					<li><a href="#" class="ui-btn ui-icon-eye ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Profile Views</a></li>-->
-					<li ><a href="#change_password_page"   class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Change Password</a></li>	
-					<li ><a href="index.html" id="logout" data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slideup">&nbsp;&nbsp;&nbsp;&nbsp;Log Out</a></li>	
-					<li><a href="#" class="ui-btn ui-icon-delete ui-btn-icon-left"  data-rel="close">&nbsp;&nbsp;&nbsp;&nbsp;Close</a></li>	
+					<li ><a href="#change_password_page"   class="ui-btn ui-icon-user ui-btn-icon-left" data-rel="close" data-transition="slideup">Change Password</a></li>	
+					<li ><a href="index.html" id="logout" data-ajax="false" class="ui-btn ui-icon-power ui-btn-icon-left" data-rel="close" data-transition="slideup">Log Out</a></li>	
+					<li><a href="#" class="ui-btn ui-icon-delete ui-btn-icon-left"  data-rel="close">Close</a></li>	
 				</ul>
 			</div><!-----/PANEL--->	
 		</div><!---/DASHBOARD MAIN -->
