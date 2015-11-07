@@ -18,7 +18,7 @@
 <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
 <gap:plugin name="org.apache.cordova.splashscreen" source="npm" />
 <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
-
+<!--
 <gap:splash src="img/splash_converted_120.png" gap:platform="android" gap:qualifier="ldpi" />
 <gap:splash src="img/splash_converted_160.png" gap:platform="android" gap:qualifier="mdpi" />
 <gap:splash src="img/splash_converted_240.png" gap:platform="android" gap:qualifier="hdpi" />
@@ -29,7 +29,7 @@
 <gap:splash src="img/splash_converted_160.png" gap:platform="android" gap:density="mdpi" />
 <gap:splash src="img/splash_converted_240.png" gap:platform="android" gap:density="hdpi" />
 <gap:splash src="img/splash_converted_320.png" gap:platform="android" gap:density="xhdpi" />
-<gap:splash src="img/splash_converted_480.png" gap:platform="android" gap:density="xxhdpi" />
+<gap:splash src="img/splash_converted_480.png" gap:platform="android" gap:density="xxhdpi" />-->
 <gap:splash src="img/splash.png" />
 <preference name="SplashScreen" value="screen" />
 <preference name="AutoHideSplashScreen" value="false" />
